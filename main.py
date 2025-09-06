@@ -18,6 +18,12 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'Logged in as {bot.user.name}')  # Outputs the bot's name to the console
 
+@bot.command()
+async def info(ctx):
+    author = ctx.author.name
+    if ctx.author.name in Pokemon.pokemons:
+        pok = Pokemon.pokemons[ctx.author.name]
+
 # The '!go' command
 @bot.command()
 async def go(ctx):
